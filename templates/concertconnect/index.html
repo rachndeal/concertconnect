@@ -1,4 +1,4 @@
-{% extends 'rango/base.html' %}
+{% extends 'concertconnect/base.html' %}
 {% load staticfiles %} 
 
 {% block title_block %}
@@ -6,7 +6,7 @@
 {% endblock %}
 {% block body_block %}
 
-    <h1>Rango says...</h1>
+    <h1>Concert Buddy says...</h1>
     
     <div>
        {% if user.is_authenticated %}
@@ -27,7 +27,7 @@
     {% if categories %}
      <ul>
         {% for category in categories %}
-     <li><a href="/rango/category/{{ category.slug }}"></a>{{ category.name }}</li>
+     <li><a href="/concertconnect/category/{{ category.slug }}"></a>{{ category.name }}</li>
         {% endfor %}
      </ul>
     {% else %}
@@ -53,7 +53,7 @@
     
     
     <div>
-        <img style="width:600px;height:400px;", src="{% static 'images/rango-close-up.jpg' %}"
+        <img style="width:200px;height:200px;", src="{% static 'images/rango-close-up.jpg' %}"
 alt="Picture of our beloved mascot: Rango" /> 
     </div>
         

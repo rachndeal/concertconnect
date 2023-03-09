@@ -1,4 +1,4 @@
-{% extends 'rango/base.html' %}
+{% extends 'concertconnect/base.html' %}
 {% load staticfiles %}
 
 {% block title_block %}
@@ -6,10 +6,10 @@
 {% endblock %}
 
 {% block body_block %}
-<h1><b>Login to Rango</b></h1>
+<h1><b>Login to Concert Connect!</b></h1>
 <br/>
 
-<form id="login_form" method="post" action="{% url 'rango:login' %}">
+<form id="login_form" method="post" action="{% url 'concertconnect:login' %}">
         {% csrf_token %}
         Username: <input type="text" name="username" value="" size="50"/>
         <br />

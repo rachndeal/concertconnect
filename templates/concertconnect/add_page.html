@@ -1,4 +1,4 @@
-{% extends 'rango/base.html' %}
+{% extends 'concertconnect/base.html' %}
 {% load staticfiles %}
 
 {% block title_block %}
@@ -9,7 +9,7 @@
         <h1>Add a Page to {{ category.name }}</h1>
 
         <div>
-            <form id="add_page_form" method="post" action="{% 'rango:category' category.slug }">
+            <form id="add_page_form" method="post" action="{% 'concertconnect:category' category.slug }">
 <!--                protects amd secures the HTTP POST request-->
                 {% csrf_token %}
                 {% csrf_token %}

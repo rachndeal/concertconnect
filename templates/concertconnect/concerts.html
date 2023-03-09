@@ -1,0 +1,35 @@
+{% extends 'concertconnect/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    Concerts
+{% endblock %}
+
+{% block body_block %}
+    <h1>Welcome to the Concert page</h1>
+    <div>
+        This has been put together by <strong>{{ name }}</strong>.
+        <br/>  
+        <br/>
+    </div>
+
+    <div>
+        <img style="width:100px;height:100px;", src="{% static 'images/rango-close-up.jpg' %}"
+alt="Picture of our beloved mascot: Rango" /> 
+    </div>
+    
+    <div>
+    <h2>Popular Venues</h2>
+        
+    <img src="{{ MEDIA_URL }} the-sse-hydro.jpg" alt="Picture of the SSE Hydro", style="width:400px;height:400px;"/><br>
+    From tripadvisor.com <br>
+    
+    <img src="{{ MEDIA_URL }} O2_arena.jpg" alt="Picture of the O2 arena", style="width:400px;height:400px;"/><br>
+    From Buro Happold
+        
+    <a href=" https://www.burohappold.com/projects/up-at-the-o2/" target="_blank">Link</a><br/>
+    </div>
+    
+    
+    <div><p>Visits: {{ visits }}</p> </div>
+{% endblock %}
