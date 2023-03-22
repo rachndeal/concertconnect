@@ -43,9 +43,13 @@ div.static2{
 
 }
 
+
+
+
+/* Login.html */
 #column2{
     
-  height: 850px;
+  height: 20px;
  position: absolute;
   left: 50%;
   margin-left: -3px;
@@ -82,15 +86,11 @@ top:75px;
 padding: 10px;
 }
 
-div h2.owner{
-    color:black;
-    padding-top: 10px;
-    padding-left: 0px;
-}
+
 
 .footer{
-height: 500px;
+height: 400px;
 text-align: center;
-background-color:white;
+background-color:red;
   
 }
