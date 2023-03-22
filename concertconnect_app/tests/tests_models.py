@@ -1,5 +1,5 @@
 from concertconnect_app.models import Category
-from django.test import SimpleTestCase
+from django.test import TestCase
 
 class ConcertMethodTests(TestCase):
     def test_ensure_views_are_positive(self):
