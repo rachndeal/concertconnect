@@ -1,0 +1,35 @@
+{% extends 'concertconnect_app/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    Concert Page
+{% endblock %}
+
+{% block body_block %}
+<div class="jumbotron p-4">
+    <div class="container">
+        <h1 class="jumbotron-heading">Welcome to the Concert page</h1>
+    </div>
+</div>
+
+<div>
+        This tutorial has been put together by <strong>{{ name }}</strong>.
+        <br/>  
+        <br/>
+</div>
+
+    <div>
+        <img style="width:600px;height:400px;", src="{% static 'images/rango-close-up.jpg' %}"
+alt="Picture of our beloved mascot: Rango" /> 
+    </div>
+    
+    <div>
+    <img src="{{ MEDIA_URL }}cat.jpg" alt="Picture of a
+Cat.", style="width:600px;height:400px;"/><br>
+    From National Geographic.
+    <a href=" https://www.nationalgeographic.com/animals/mammals/facts/domestic-cat" target="_blank">Link</a><br/>
+    </div>
+    
+    
+    <div><p>Visits: {{ visits }}</p> </div>
+{% endblock %}

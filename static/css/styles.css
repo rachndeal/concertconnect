@@ -1,0 +1,96 @@
+#button{
+    padding-right: 100px;
+}
+.navbar-toggler-icon{
+    padding-left: 80px;
+    padding-top:3px ;
+    padding-right: 40px;
+    color: cornflowerblue;
+    text-align: right;
+}
+div.relative {
+  position: relative;
+top: 0px;
+left: 50px;
+    color: cornflowerblue;
+}
+
+div.picture{
+      position: absolute;
+top: 0px;
+left: 0px;
+}
+
+div.static1{
+    position: absolute;
+    top: -10px;
+  left: 30px;
+
+}
+div.static2{
+        position: absolute;
+    top: 10px;
+  left: 30px;
+}
+.blue{
+    color: blue;
+    font-style: italic;
+      
+}
+.red{
+    color: red;
+    font-style: italic;
+
+}
+
+#column2{
+    
+  height: 850px;
+ position: absolute;
+  left: 50%;
+  margin-left: -3px;
+  top: 0;
+    border-left: 3px dashed #bbb;
+}
+
+#or{
+    position:relative;
+     margin: auto;
+  padding: 5px;
+   height: 100px;
+    width: 100px;
+      left: 20px;
+top:-150px;
+    color: black;
+}
+
+
+#column1{
+  position: relative;
+  left: 50px;
+top:75px;
+  width: 400px;
+  padding: 10px;
+    padding-bottom: 60px;
+    
+}
+#column3{
+    position: absolute;
+  right: 0px;
+  width: 500px;
+  top: 120px;
+padding: 10px;
+}
+
+div h2.owner{
+    color:black;
+    padding-top: 10px;
+    padding-left: 0px;
+}
+
+.footer{
+height: 500px;
+text-align: center;
+background-color:white;
+  
+}
