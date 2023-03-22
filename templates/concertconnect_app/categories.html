@@ -1,18 +1,39 @@
-<ul class="nav flex-column">
-{% if categories %}
-    {% for c in categories %}
-        {% if c == current_category %}
-        <li class="nav-item">
-            <a class="nav-link active" href="{% url 'concertconnect_app:show_category' c.slug %}"><span data-feather="archive"></span>{{ c.name }}</a>
-        </li>
-        {% else %}
-        <li class="nav-item">
-            <a class="nav-link" href="{% url 'concertconnect_app:show_category' c.slug %}">{{ c.name }}<span data-feather="archive"></span></a>
-        </li>
-        {% endif %}
-    {% endfor %}
-{% else %}
-    <li class="nav-item">There are no categories present.</li>
-{% endif %}
-</ul>
+{% extends 'concertconnect_app/base.html' %}
+{% load staticfiles %}
 
+{% block title_block %}
+    Event Info
+{% endblock %}
+
+{% block body_block %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Event Info</h1>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <!-- Input concert image -->
+            <img src="{{ MEDIA_URL }}your_concert_image.jpg" alt="Concert Image" class="img-fluid">
+        </div>
+        <div class="col-md-3">
+            <h3>Get Directions</h3>
+            <!-- Input Google Maps link -->
+            <a href="https://www.google.com/maps/" target="_blank">
+                <img src="{{ MEDIA_URL }}your_map_image.jpg" alt="Google Maps" class="img-fluid">
+            </a>
+        </div>
+        <div class="col-md-3">
+            <h3>Comments</h3>
+            <!-- Input comments -->
+            <div class="comments">
+                <p>Comment 1</p>
+                <p>Comment 2</p>
+                <p>Comment 3</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
