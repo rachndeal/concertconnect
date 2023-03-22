@@ -20,7 +20,7 @@ class UserProfileForm(forms.ModelForm):
 
 class CategoryForm(forms.ModelForm):
     name = forms.CharField(max_length=Category.NAME_MAX_LENGTH,
-    help_text="Please enter the Concert's name.")
+    help_text="Please enter the Venue's name.")
     views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     likes = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
     slug = forms.CharField(widget=forms.HiddenInput(), required=False)
@@ -33,9 +33,9 @@ class CategoryForm(forms.ModelForm):
         fields = ('name',)
 
 class PageForm(forms.ModelForm):
-    title = forms.CharField(max_length=Page.TITLE_MAX_LENGTH,help_text="Please enter the Venue.")
+    title = forms.CharField(max_length=Page.TITLE_MAX_LENGTH,help_text="Please enter the name of Concert.")
     
-    url = forms.URLField(max_length=Page.URL_MAX_LENGTH,help_text="Please enter a URL of info on Venue.")
+    url = forms.URLField(max_length=Page.URL_MAX_LENGTH,help_text="Please enter a URL for info on Venue.")
     
     views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
 

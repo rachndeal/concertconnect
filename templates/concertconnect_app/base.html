@@ -24,12 +24,40 @@
     <body>
         <header>
             <nav class="navbar navbar navbar-dark fixed-top bg-dark p-0">
-                <a class="navbar-brand p-3" href="{% url 'concertconnect_app:index' %}"><div class= "relative">Con<div class="static1">cert</div><div class="static2">nect</div></div>
+            
+                <a class="navbar-brand p-3" href="{% url 'concertconnect_app:index' %}">
+                    
+                    
+                  <div class="picture">
+                      {% if user.is_authenticated and user_profile.picture %}
+                      <img src="{{ MEDIA_URL }}{{ user_profile.picture }}" width="59" height="55" alt="{{ selected_user.username }}'s profile image" /> 
+                        {% else %}
+                    <img src="{{ MEDIA_URL }}cat.jpg" width="59" height="55" alt="{{ selected_user.username }}'s profile image" /> 
+                      {% endif %}
+                    </div>
+                <div class= "relative">Con<div class="static1">cert</div><div class="static2">nect</div></div>
                 </a>
                 
+                           <div>
+    <form class="form-inline" id="user-form" method="post" action="{% url 'concertconnect_app:search' %}">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <input class="form-control" type="text" placeholder="Search" size="50" name="query" id="query" value="{{ query }}" />
+        </div>
+
+        <button class="btn btn-primary" type="submit" name="submit">Search</button>
+    </form>
+</div>
+                
+                
+                
+                
+                <div id="button">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon">Menu</span>
                 </button>
+                </div>
                 
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav mr-auto">
@@ -40,10 +68,13 @@
                         <li class="nav-item "><a class="nav-link" href="{% url 'concertconnect_app:search' %}">Search</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'concertconnect_app:add_category' %}">Add Venue</a></li>
                         <li class="nav-item "><a class="nav-link" href="{% url 'admin:index' %}">Admin</a></li>
+                        <li class="nav-item "><a class="nav-link" href="{% url 'concertconnect_app:profile' user.username %}">Profile</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'concertconnect_app:list_profiles' %}">List Profiles</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'auth_logout' %}?next=/concertconnect_app/">Logout</a></li>
                         
                         {% elif user.is_authenticated and not user.is_superuser %}
                         <li class="nav-item "><a class="nav-link" href="{% url 'concertconnect_app:restricted' %}">Restricted</a></li>
+                         <li class="nav-item "><a class="nav-link" href="{% url 'concertconnect_app:profile' user.username %}">Profile</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'auth_logout' %}?next=/concertconnect_app/">Logout</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'auth_password_change' %}">Change Password</a></li>
                         

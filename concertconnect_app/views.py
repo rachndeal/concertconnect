@@ -114,6 +114,9 @@ class ShowCategoryView(View):
     
     @method_decorator(login_required)
     def post(self, request, category_name_slug):
+        if request.method == 'POST':# delete both lines when you have key
+            return search_denial() ##
+        
         context_dict = self.create_context_dict(category_name_slug)
         query = request.POST['query'].strip()
 
@@ -234,7 +237,7 @@ class ProfileView(View):
             return None
         
         user_profile = UserProfile.objects.get_or_create(user=user)[0]
-        form = UserProfileForm({'website': user_profile.website,
+        form = UserProfileForm({'concerts': user_profile.concerts,
                                 'picture': user_profile.picture})
         
         return (user, user_profile, form)
