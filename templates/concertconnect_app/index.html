@@ -1,0 +1,83 @@
+{% extends 'concertconnect_app/base.html' %}
+{% load staticfiles %} 
+
+{% block title_block %}
+        Homepage 
+{% endblock %}
+{% block body_block %}
+
+<div class="jumbotron p-4">
+    <div class="container">
+        <h1 class="jumbotron-heading">Concert Connect Welcomes you!</h1>
+        <div> 
+            <h2 class="h2">
+            {% if user.is_superuser %}
+                Greetings <div class="red"> <b>{{ user.username }}!</b></div>
+           {% elif user.is_authenticated %}
+            Howdy <div class="blue"><b>{{ user.username }}!</b></div>
+            {% else %}
+                Hey there partner!
+            {% endif %}
+            <br/>
+            <br/>
+            <strong>{{ boldmessage }}</strong><br/>    
+            </h2>
+                <div>
+    <h2 class="owner">   Venue owner?
+    <a href="{% url 'registration_register' %}">Register here!</a></h2>
+    </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-6">
+               <div class="card-body">
+                <h2>Popular Venues</h2>
+                <p class="card-text">
+                {% if categories %}
+                <ul class="list-group">
+                {% for category in categories %}
+                    <li class="list-group-item"><a href="/concertconnect_app/category/{{ category.slug }}"></a>{{ category.name }}</li>
+                {% endfor %}
+                </ul>
+                {% else %}
+                    <strong>There are no Venues present.</strong>
+                {% endif %}
+               
+            </div>
+        </div>
+    </div>    
+     
+        <div class="col-md-6">
+            <div class="card mb-6">
+                <div class="card-body">
+                    <h2>Most Viewed Concerts</h2>
+                    <p class="card-text">
+                    {% if pages %}
+                    <ul class="list-group">
+                        {% for page in pages %}
+                        <li class="list-group-item"><a href="{{ page.url }}">{{ page.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                        <strong>There are no concerts present.</strong>
+                    {% endif %}
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br/>
+    
+    <div>
+        <img style="width:200px;height:200px;", src="{{ MEDIA_URL }}O2_Aca.jpg" alt="O2 Academy Glasgow" /> 
+    </div>
+        
+    
+{% endblock %}

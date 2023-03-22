@@ -15,10 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from concertconnect import views
+from concertconnect_app import views
+from django.conf import settings
+from django.conf.urls.static import static
+from registration.backends.simple.views import RegistrationView
+from django.urls import reverse
 
 urlpatterns = [
 	path('', views.index, name='index'),
-	path('concertconnect/', include('concertconnect.urls')),
+    path('', views.about, name='about'),
+    path('concertconnect_app/', include('concertconnect_app.urls')),
+ 
+    path('accounts/', include('registration.backends.simple.urls')),
+
     path('admin/', admin.site.urls),
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
