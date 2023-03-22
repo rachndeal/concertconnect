@@ -2,13 +2,13 @@
 {% load staticfiles %}
 
 {% block title_block %}
-    Add a Page
+    Add Concert
 {% endblock %}
 
 {% block body_block %}
 <div class="jumbotron p-4">
     <div class="container">
-        <h1 class="jumbotron-heading">Add a Page to {{ category.name }}</h1>
+        <h1 class="jumbotron-heading">Add a Concert to {{ category.name }}</h1>
     </div>
 </div>
 
@@ -28,7 +28,7 @@
                     <div class="p-2"></div>
                 {% endfor %}
                 <br />
-                <button class="btn btn-primary" type="submit" name="submit">Add Page</button>
+                <button class="btn btn-primary" type="submit" name="submit">Add Concert</button>
             <div class="p-5"></div>
         </form>
     </div>
