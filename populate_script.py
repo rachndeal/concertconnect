@@ -120,3 +120,26 @@ def add_cat(name, views=0, likes=0):
 if __name__ == '__main__':
     print('Starting ConcertConnects population script...')
     populate()
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
