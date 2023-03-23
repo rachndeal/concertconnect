@@ -1,0 +1,50 @@
+{% extends 'concertconnect_app/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    About Rango
+{% endblock %}
+
+{% block body_block %}
+<div class="jumbotron p-4">
+    <div class="container">
+        <h1 class="jumbotron-heading">Welcome to the About page</h1>
+    </div>
+</div>
+
+<div>
+        This tutorial has been put together by <strong>{{ name }}</strong>.
+        <br/>  
+        <br/>
+</div>
+
+    <div>
+        <img style="width:600px;height:400px;", src="{% static 'images/rango-close-up.jpg' %}"
+alt="Picture of our beloved mascot: Rango" /> 
+    </div>
+    
+    <div>
+    <img src="{{ MEDIA_URL }}cat.jpg" alt="Picture of a
+Cat.", style="width:600px;height:400px;"/><br>
+    From National Geographic.
+    <a href=" https://www.nationalgeographic.com/animals/mammals/facts/domestic-cat" target="_blank">Link</a><br/>
+    </div>
+    
+
+
+<button class="btn btn-primary" onclick="alert('You clicked the button using inline JavaScript.');">
+Click me - I run on vanilla JavaScript!
+</button>
+
+<button class="btn btn-primary" id="about-btn">
+    Click me - I'm using JQuery!
+</button>
+
+<p>This is some text for the JQuery example.</p>
+
+<div id="msg">Hello! I'm a further example for JQuery testing.</div>
+
+<br />
+    
+    <div><p>Visits: {{ visits }}</p> </div>
+{% endblock %}

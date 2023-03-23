@@ -1,0 +1,40 @@
+{% extends 'concertconnect_app/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+    Login
+{% endblock %}
+
+{% block body_block %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Login</h2>
+            <form method="post" action=".">
+                {% csrf_token %}
+                <label>Username</label>
+                <input type="text" name="username" class="form-control" required autofocus>
+                <label>Password</label>
+                <input type="password" name="password" class="form-control" required>
+                <button class="btn btn-outline-danger" type="submit">Login</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h2>Sign up</h2>
+            <form method="post" action=".">
+                {% csrf_token %}
+                <label>Username</label>
+                <input type="text" name="username" class="form-control" maxlength="30" required>
+                <label>E-mail</label>
+                <input type="email" name="email" class="form-control" required>
+                <label>Password</label>
+                <input type="password" name="password1" class="form-control" required>
+                <label>Password confirmation</label>
+                <input type="password" name="password2" class="form-control" required>
+                <button class="btn btn-outline-danger" type="submit">Sign up</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

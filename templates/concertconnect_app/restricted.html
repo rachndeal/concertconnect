@@ -1,0 +1,43 @@
+{% extends 'concertconnect_app/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+  {{ bold }}
+{% endblock %}
+
+{% block body_block %}
+{% if user.not_superuser %}
+<div class="jumbotron p-4">
+    <div class="container">
+        <h1 class="jumbotron-heading">Restricted Page</h1>
+    </div>
+</div>
+
+<div>
+    <p style="color:crimson"><strong><em>
+        You are not authorised: please return to main site.
+        </em></strong>
+    </p>
+</div>
+
+<div>
+<p> You are seeing this because you pressed a restricted tab or you searched without implementing a key.</p>
+{% endif %}
+    
+{% if user.is_superuser %}
+<div class="jumbotron p-4">
+    <div class="container">
+        <h1 class="jumbotron-heading">Admin Verified</h1>
+    </div>
+</div>
+    
+<h4> You are a SuperUser! Continue to admin :</h4>
+    <div>
+      <li ><a href="{% url 'admin:index' %}">Admin</a></li>
+    </div>
+{% endif%}
+
+</div>
+
+{% endblock %}
+

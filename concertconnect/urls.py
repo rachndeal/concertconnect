@@ -1,5 +1,6 @@
 """concertconnect URL Configuration
 
+
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
 Examples:
@@ -15,10 +16,26 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from concertconnect import views
+from concertconnect_app import views
+from django.conf import settings
+from django.conf.urls.static import static
+from registration.backends.simple.views import RegistrationView
+from django.urls import reverse
 
+class MyRegistrationView(RegistrationView):
+    def get_success_url(self, user):
+        return reverse('concertconnect_app:register_profile')
 urlpatterns = [
-	path('', views.index, name='index'),
-	path('concertconnect/', include('concertconnect.urls')),
+	
+    path('', views.IndexView.as_view(), name='index'),
+    path('', views.AboutView.as_view(), name='about'),
+    path('concertconnect_app/', include('concertconnect_app.urls')),
+ 
+    
+    
+    path('accounts/register/', MyRegistrationView.as_view(), name='registration_register'),
+    path('accounts/', include('registration.backends.simple.urls')),
+
     path('admin/', admin.site.urls),
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
