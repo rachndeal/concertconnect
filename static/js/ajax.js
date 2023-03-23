@@ -22,7 +22,7 @@ $(document).ready(function() {
               })
     });
 
-    $('.concertconnect_app-page-add').click(function() {
+    $('.concertconnect_app-page-add').click(function() { 
         var categoryid = $(this).attr('data-categoryid');
         var title = $(this).attr('data-title');
         var url = $(this).attr('data-url');

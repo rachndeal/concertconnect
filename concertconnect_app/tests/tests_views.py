@@ -9,7 +9,7 @@ class IndexTestViews(TestCase):
         self.assertContains(response, 'There are no categories present')
         self.assertQuerysetEqual;(response.context['categories'], [])
 
-    def add_category(nsme, views=0, likes=0):
+    def add_category(name, views=0, likes=0):
         category = Category.objects.get_or_create(name=name)[0]
         category.views =views
         category.likes = likes

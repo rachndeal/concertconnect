@@ -4,7 +4,11 @@ from concertconnect_app.forms import UserForm, CategoryForm, UerProfileForm
 class testForms(TestCase):
     def test_user_form_valid_data(self):
         form = UserForm(fields={
-            'username' : 'conert1',
+<<<<<<< HEAD
+      
+=======
+            'username' : 'concert1',
+>>>>>>> 1393aebbad94f8dedd2895c1fb51fd58a5a912be
             'email': 'hello@gmail.com'
             'password': 'He!lo'
             })
@@ -29,7 +33,11 @@ class testForms(TestCase):
         self.assertEquals(len(form.errors),3)
 
     def test_user_profile_form_vaild_data(self):
-        form = UserProfileForm(fields={
+<<<<<<< HEAD
+
+=======
+        form = UserProfileForm(feilds={
+>>>>>>> 1393aebbad94f8dedd2895c1fb51fd58a5a912be
             'concerts': 'Hydro'
             'picture': 'PhotoOfHydro'
             })

@@ -28,7 +28,7 @@ SECRET_KEY = 'qw965d-#kepr9+ph(q7_n2_*pex*k3u)p$%)j!ffb%f&@rr+fo'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['anaconda26.pythonanywhere.com','127.0.0.1']
 
 
 # Application definition
