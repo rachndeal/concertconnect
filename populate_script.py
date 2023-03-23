@@ -8,8 +8,7 @@ from concertconnect_app.models import Category, Page
 
 
 def populate():
-<<<<<<< HEAD
-=======
+
       ao_arena = [
        {'title': 'AO Arena',
         'url': 'https://www.ao-arena.com',
@@ -66,7 +65,6 @@ def populate():
                   add_page(c, p['title'], p['url'], views=p['views'] )
                   
       for c in Category.objects.all():
->>>>>>> 1393aebbad94f8dedd2895c1fb51fd58a5a912be
         for p in Page.objects.filter(category=c):
             print(f'- {c}: {p}')
 
@@ -88,11 +86,4 @@ def add_cat(name, views=0, likes=0):
 if __name__ == '__main__':
     print('Starting ConcertConnects population script...')
     populate()
-<<<<<<< HEAD
-=======
-   
 
-   
-   
-   
->>>>>>> 1393aebbad94f8dedd2895c1fb51fd58a5a912be
