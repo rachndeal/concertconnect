@@ -6,7 +6,7 @@
 {% endblock %}
 {% block body_block %}
 
-<div class="jumbotron p-4">
+<div class="jumbotron p-2">
     <div class="container">
         <h1 class="jumbotron-heading">Concert Connect Welcomes you!</h1>
         <div> 
@@ -14,13 +14,11 @@
             {% if user.is_superuser %}
             Greetings <div class="red"> <b>{{ user.username }}!</b></div>
            {% elif user.is_authenticated %}
-            Howdy <div class="blue"><b>{{ user.username }}!</b></div>
+            Hey<div class="blue"><b>{{ user.username }}!</b></div>
             {% else %}
-                Hey there partner!
+    
             {% endif %}
-            <br/>
-            <br/>
-            <strong>{{ boldmessage }}</strong><br/>    
+         
             </h2>
                 <div>
     </div>
@@ -49,21 +47,74 @@
                
             </div>
         </div>
+            <br>
     </div>    
      
         <div class="col-md-6">
             <div class="card mb-6">
                 <div class="card-body">
-                    <h2>Most Viewed Concerts</h2>
+                    <h2>Most Viewed Events</h2>
                     <p class="card-text">
                     {% if pages %}
                     <ul class="list-group">
                         {% for page in pages %}
-                        <li class="list-group-item"><a href="{{ page.url }}">{{ page.title }}</a></li>
+                        <li class="list-group-item"><a href="{{ page.url }}">{{ page.title }}</a> {{ page.views }}  likes</li>
                         {% endfor %}
                     </ul>
                     {% else %}
                         <strong>There are no concerts present.</strong>
+                    {% endif %}
+                    
+                </div>
+            </div>
+            <br>
+        </div>
+       
+            <div class="col-md-6">
+            <div class="card mb-6">
+                <div class="card-body">
+                    <h2>Events upcoming</h2>
+                    <p class="card-text">
+                    {% if pages %}
+                    <ul class="list-group">
+                        {% for page in pages %}
+                        {% if  page.views > 300 %}
+                        <li class="list-group-item">
+                       <img src="{{ MEDIA_URL }}{{ page.event_picture }}" alt="Picture of a
+{{ page.title }}", style="width:100px;height:100px;"/>
+                        <a href="{{ page.url }}">{{ page.title }}</a>
+                            {{ page.views }} likes
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                        <strong>There are no Upcoming Events present.</strong>
+                    {% endif %}
+                    
+                </div>
+            </div>
+        </div>
+        <br/>
+         <div class="col-md-6">
+            <div class="card mb-6">
+                <div class="card-body">
+                    <h2>Events Near You </h2>
+                    <p class="card-text">
+                    {% if pages %}
+                    <ul class="list-group">
+                      
+                        {% for page in near_you %} 
+                        {% if page %}
+                   
+                        <li class="list-group-item"><a href="{{ page.url }}">{{ page }}</a>
+               
+                        {% endif %}
+                        {% endfor %}
+            
+                    </ul>
+                    {% else %}
+                        <strong>There are no Upcoming Events present.</strong>
                     {% endif %}
                     
                 </div>

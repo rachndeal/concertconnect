@@ -18,10 +18,11 @@
 
             <!-- AJAX chapter likes button component. DM. -->
             <div>
+                <strong>{{ category.views }}</strong>views<br/>
                 <strong id="like_count">{{ category.likes }}</strong> likes
                 {% if user.is_authenticated %}
                 <button id="like_btn" data-categoryid="{{ category.id }}" class="btn btn-primary btn-sm" type="button">
-                    <span data-feather="thumbs-up"></span>
+                    <span data-feather="fa fa-star"></span>
                     Like Venue
                 </button>
                 {% endif %}
@@ -34,6 +35,9 @@
         {% for page in pages %}
             <li>
                 <a href="{% url 'concertconnect_app:goto' %}?page_id={{ page.id }}">{{ page.title }}</a>
+                <p> {{ page.description }} </p>
+              <img src="{{ MEDIA_URL }}{{ page.event_picture }}" alt="Picture of a
+{{ page.title }}", style="width:150px;height:150px;"/>
                 {% if page.views > 1 %}
                     ({{ page.views }} views)
                 {% elif page.views == 1 %}
@@ -46,12 +50,12 @@
     </ul>
 </div>
     {% else %}
-    <strong>No Venues currently for this concert.</strong>
+    <strong>No Events currently for this Venue.</strong>
     {% endif %}
     <br/>
     
     {% if user.is_superuser %}
-        <a href="{% url 'concertconnect_app:add_page' category.slug %}">Add Concert</a><br/>
+        <a href="{% url 'concertconnect_app:add_page' category.slug %}">Add Event</a><br/>
     {% endif %}
     <br/>
     {% if user.is_authenticated %}

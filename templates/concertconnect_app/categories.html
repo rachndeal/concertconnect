@@ -3,7 +3,7 @@
     {% for c in categories %}
         {% if c == current_category %}
         <li class="nav-item">
-            <a class="nav-link active" href="{% url 'concertconnect_app:show_category' c.slug %}"><span data-feather="archive"></span>{{ c.name }}</a>
+            <a class="nav-link active" href="{% url 'concertconnect_app:show_category' c.slug %}"><span class="fa fa-bullseye"></span>{{ c.name }}</a>
         </li>
         {% else %}
         <li class="nav-item">

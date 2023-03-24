@@ -19,6 +19,7 @@
     <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/4.2/examples/dashboard/dashboard.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
 
     <body>
@@ -62,7 +63,7 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item"><a class="nav-link" href="{% url 'concertconnect_app:index' %}">Home</a></li>
-                        <li class="nav-item "><a class="nav-link" href="{% url 'concertconnect_app:about' %}">About</a></li>
+                    
                         <li class="nav-item "><a class="nav-link" href="{% url 'concertconnect_app:concerts' %}">Concerts</a></li>
                         {% if user.is_superuser %}
                         <li class="nav-item "><a class="nav-link" href="{% url 'concertconnect_app:search' %}">Search</a></li>
@@ -75,12 +76,13 @@
                         {% elif user.is_authenticated and not user.is_superuser %}
                         <li class="nav-item "><a class="nav-link" href="{% url 'concertconnect_app:restricted' %}">Restricted</a></li>
                          <li class="nav-item "><a class="nav-link" href="{% url 'concertconnect_app:profile' user.username %}">Profile</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'concertconnect_app:list_profiles' %}">List Profiles</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'auth_logout' %}?next=/concertconnect_app/">Logout</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'auth_password_change' %}">Change Password</a></li>
                         
                         {% else %}
-                        <li class="nav-item"><a class="nav-link" href="{% url 'registration_register' %}">Register Here</a></li>
-                        <li class="nav-item "><a class="nav-link" href="{% url 'auth_login' %}">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'registration_register' %}">Register Here  </a></li>
+                        <li class="nav-item "><a class="nav-link" href="{% url 'auth_login' %}">Login/Sign up</a></li>
                         
                         {% endif %}
                     </ul>
