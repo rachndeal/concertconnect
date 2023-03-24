@@ -9,7 +9,7 @@ admin.site.register(UserProfile)
 
 
 class PageAdmin(admin.ModelAdmin):
-    list_display = ('title','category', 'url')
+    list_display = ('title','category', 'url','description','views',)
 
 
 class CategoryAdmin(admin.ModelAdmin):

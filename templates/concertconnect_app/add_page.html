@@ -14,7 +14,7 @@
 
 <div class="container">
     <div class="row">
-            <form id="add_page_form" method="post" action="{% 'concertconnect_app:category' category.slug }">
+            <form id="add_page_form" method="post" action="{% 'concertconnect_app:category' category.slug }" enctype="multipart/form-data">
 <!--                protects amd secures the HTTP POST request-->
                 {% csrf_token %}
                 {% csrf_token %}
@@ -28,7 +28,7 @@
                     <div class="p-2"></div>
                 {% endfor %}
                 <br />
-                <button class="btn btn-primary" type="submit" name="submit">Add Concert</button>
+                <button class="btn btn-primary" type="submit" name="submit">Add Event</button>
             <div class="p-5"></div>
         </form>
     </div>

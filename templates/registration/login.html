@@ -6,35 +6,29 @@
 {% endblock %}
 
 {% block body_block %}
+
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
-            <h2>Login</h2>
-            <form method="post" action=".">
+            <form class="form-group" method="post" action=".">
                 {% csrf_token %}
-                <label>Username</label>
+                <br/>
+                <br/>
+                <button class="btn btn-lg btn-outline-danger btn-block" type="submit">Login</button> <br/>
+                 <div class="form-group">
+                <label>Username</label><br/>
                 <input type="text" name="username" class="form-control" required autofocus>
-                <label>Password</label>
-                <input type="password" name="password" class="form-control" required>
-                <button class="btn btn-outline-danger" type="submit">Login</button>
+                <label>Password</label><br/>
+                <input type="password" name="password" class="form-control" required> 
+                </div>
             </form>
-        </div>
-        <div class="col-md-6">
-            <h2>Sign up</h2>
-            <form method="post" action=".">
-                {% csrf_token %}
-                <label>Username</label>
-                <input type="text" name="username" class="form-control" maxlength="30" required>
-                <label>E-mail</label>
-                <input type="email" name="email" class="form-control" required>
-                <label>Password</label>
-                <input type="password" name="password1" class="form-control" required>
-                <label>Password confirmation</label>
-                <input type="password" name="password2" class="form-control" required>
-                <button class="btn btn-outline-danger" type="submit">Sign up</button>
-            </form>
-        </div>
-    </div>
-</div>
+        </div>    
+
+        <br/>
+    
+    <hr class="column2"> 
+    <h3> <li class="nav-item"><a class="nav-link" href="{% url 'registration_register' %}">Register Here  </a></li></h3>
+
+
+<p class="footer"></p>
 {% endblock %}
 

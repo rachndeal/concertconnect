@@ -51,7 +51,6 @@ def search_bar(request):
         #Until You have made a key You will be sent to this page - if deleted without key, a 404 page shows
         return search_denial() # Delete when key is made 
         
-        
         query = request.POST['query'].strip()
 
         if query:
@@ -66,9 +65,11 @@ class IndexView(View):
     def get(self, request):
         category_list = Category.objects.order_by('-likes')[:5]
         page_list = Page.objects.order_by('-views')[:5]
-
+        near_list = Category.objects.filter(venue_info__icontains= 'Glasgow')[:5]
+        
         context_dict = {}
         context_dict['boldmessage']= 'Events up coming'
+        context_dict['near_you'] = near_list
         context_dict['categories'] = category_list
         context_dict['pages'] = page_list
 
@@ -238,7 +239,7 @@ class ProfileView(View):
         
         user_profile = UserProfile.objects.get_or_create(user=user)[0]
         form = UserProfileForm({'concerts': user_profile.concerts,
-                                'picture': user_profile.picture})
+                                'picture': user_profile.picture,})
         
         return (user, user_profile, form)
     

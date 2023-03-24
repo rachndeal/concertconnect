@@ -47,49 +47,14 @@ div.static2{
 
 
 /* Login.html */
-#column2{
-    
-  height: 1000px;
- position: absolute;
-  left: 50%;
-  margin-left: -3px;
-  top: 0;
-    border-left: 3px dashed #bbb;
-}
-
-#or{
-    position:relative;
-     margin: auto;
-  padding: 5px;
-   height: 100px;
-    width: 100px;
-      left: 20px;
-top:-150px;
-    color: black;
-}
-
-
-#column1{
-  position: relative;
-  left: 50px;
-top:75px;
-  width: 400px;
-  padding: 10px;
-    padding-bottom: 60px;
-    
-}
-#column3{
-    position: absolute;
-  right: 0px;
-  width: 500px;
-  top: 120px;
-padding: 10px;
+#hr.column2{
+    border-top: 3px dashed #bbb;
 }
 
 
 
 .footer{
-height: 400px;
+height: 300px;
 text-align: center;
 background-color:white;
   
